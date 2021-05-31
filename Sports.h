@@ -18,7 +18,7 @@ class Basketball
 		Basketball& operator = (const Basketball &newObje);
 		
 		friend ostream& operator << (ostream &out, const Basketball &obj);
-		//Basketball operator + (Basketball const &obj);
+		Basketball operator + (Basketball const &obj);
 
 		void setCalForMin(int tempCal);
 		int getCalForMin();
@@ -41,7 +41,7 @@ class Football
 		Football& operator = (const Football &newObje);
 		
 		friend ostream& operator << (ostream &out, const Football &obj);
-		//Football operator + (Football const &obj);
+		Football operator + (Football const &obj);
 		
 		void setCalForMin(int tempCal);
 		int getCalForMin();
@@ -57,13 +57,37 @@ class Tennis
 	
 	public:
 		static int count;
+		
 		Tennis();
 		Tennis(int calForMin, int totalCalForExercise);
 		Tennis(const Tennis &newObje);
 		Tennis& operator = (const Tennis &newObje);
 		
 		friend ostream& operator << (ostream &out, const Tennis &obj);
-		//Tennis operator + (Tennis const &obj);
+		Tennis operator + (Tennis const &obj);
+		
+		void setCalForMin(int tempCal);
+		int getCalForMin();
+		void setTotalCal(int tempCal);
+		int getTotalCal();
+		int amountCalForExercise(int min);
+};
+
+class Swimming 
+{		
+	int calForMin = 7; 	
+	int totalCalForExercise = 0;
+	
+	public:
+		static int count;
+		
+		Swimming();
+		Swimming(int calForMin, int totalCalForExercise);
+		Swimming(const Swimming &newObje);
+		Swimming& operator = (const Swimming &newObje);
+		
+		friend ostream& operator << (ostream &out, const Swimming &obj);
+		Swimming operator + (Swimming const &obj);
 		
 		void setCalForMin(int tempCal);
 		int getCalForMin();
