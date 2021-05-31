@@ -2,7 +2,6 @@
 #include "Meals.h"
 using namespace std;
 
-
 Breakfast::Breakfast()
 {
 	calTaken = 0;
@@ -20,6 +19,19 @@ Breakfast& Breakfast::operator = (const Breakfast& obj)
 	this->calTaken = obj.calTaken;
 	return *this;
 }
+
+ostream& operator << (ostream &out, const Breakfast &obj)
+{
+	out << "Cal Taken > ";
+	out << obj.calTaken << endl << endl;
+	return out;
+}
+
+Breakfast Breakfast::operator + (Breakfast const &obj)
+{
+	return Breakfast(this->calTaken + obj.calTaken);
+}
+
 void Breakfast::setCalTaken(int calTaken)
 {
 	this->calTaken = calTaken;
@@ -56,6 +68,18 @@ Lunch& Lunch::operator = (const Lunch& obj)
 	return *this;
 }
 
+Lunch Lunch::operator + (Lunch const &obj)
+{
+	return Lunch(this->calTaken + obj.calTaken);
+}
+
+ostream& operator << (ostream &out, const Lunch &obj)
+{
+	out << "Cal Taken > ";
+	out << obj.calTaken << endl << endl;
+	return out;
+}
+
 void Lunch::setCalTaken(int calTaken)
 {
 	this->calTaken = calTaken;
@@ -67,9 +91,9 @@ int Lunch::getCalTaken()
 
 void Lunch::amountCalForMeal(int portion)
 {
-	if(portion == 1)	this->calTaken = 200; 
-	if(portion == 2)	this->calTaken = 400; 
-	if(portion == 3)	this->calTaken = 600; 
+	if(portion == 1)	this->calTaken = 400; 
+	if(portion == 2)	this->calTaken = 600; 
+	if(portion == 3)	this->calTaken = 800; 
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -93,6 +117,18 @@ Dinner& Dinner::operator = (const Dinner& obj)
 
 }
 
+Dinner Dinner::operator + (Dinner const &obj)
+{
+	return Dinner(this->calTaken + obj.calTaken);
+}
+
+ostream& operator << (ostream &out, const Dinner &obj)
+{
+	out << "Cal Taken > ";
+	out << obj.calTaken << endl << endl;
+	return out;
+}
+
 void Dinner::setCalTaken(int calTaken)
 {
 	this->calTaken = calTaken;
@@ -104,7 +140,7 @@ int Dinner::getCalTaken()
 
 void Dinner::amountCalForMeal(int portion)
 {
-	if(portion == 1)	this->calTaken = 200; 
-	if(portion == 2)	this->calTaken = 400; 
-	if(portion == 3)	this->calTaken = 600; 
+	if(portion == 1)	this->calTaken = 600; 
+	if(portion == 2)	this->calTaken = 800; 
+	if(portion == 3)	this->calTaken = 800; 
 }
